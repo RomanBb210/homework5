@@ -479,11 +479,13 @@ img {
 }
 
 .address-list .link {
-    font-size: 14px;
-    font-weight: 400;
     color: var(--color-white);
     text-decoration: none;
+    font-size: 14px;
     font-style: normal;
+    font-weight: 400;
+    line-height: 24px; 
+    letter-spacing: 0.42px;
 }
 
 .address .link:hover,
@@ -495,6 +497,8 @@ img {
     display: flex;
     flex-direction: column;
     gap: 9px;
+
+    width: 231px;
 }
 
 .address-list .contact {
@@ -513,11 +517,11 @@ img {
 .footer-nav {
     display: flex;
     align-items: baseline;
-    column-gap: 70px;
 }
 
 .join-title {
     margin-bottom: 20px;
+    margin-left: 70px;
 
     font-weight: 700;
     font-size: 14px;
@@ -529,6 +533,7 @@ img {
     display: flex;
     align-items: center;
     column-gap: 10px;
+    margin-left: 70px;
 }
 
 .join-item {
@@ -556,6 +561,73 @@ img {
     background-color: var(--accent-color);
 }
 
+
+/* footer-form */
+
+.footer-form {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    column-gap: 12px;
+    margin-left: 93px;
+}
+
+.subscribe-label {
+    display: block;
+    margin-bottom: 20px;
+
+    color: var(--color-white);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.42px;
+    text-transform: uppercase;
+}
+
+.subscribe-input {
+    display: block;
+    width: 358px;
+    height: 50px;
+    padding-left: 16px;
+    
+    color: rgba(255, 255, 255, 0.60);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.48px;
+
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.30);
+    background: inherit;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    outline: 0px;
+}
+
+.subscribe-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+
+    width: 200px;
+    height: 50px;
+
+    color: var(--color-white);
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 0.96px;
+
+    border: transparent;
+    border-radius: 4px;
+    background: var(--accent-color);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
 
 
 /* portfolio */
@@ -724,6 +796,7 @@ img {
     right: 8px;
     width: 30px;
     height: 30px;
+    padding: 6px;
 
     border: 1px solid rgba(0, 0, 0, 0.10);
     border-radius: 50%;
@@ -734,7 +807,10 @@ img {
     cursor: pointer;
 }
 
-
+.modal-close-button:hover,
+.modal-close-button:focus {
+    fill: var(--accent-color);
+}
 
 /* modal form */
 
@@ -752,6 +828,7 @@ textarea {
 .form-field {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .form-field label{
@@ -768,15 +845,36 @@ textarea {
     letter-spacing: 0.6px;
 }
 
+.modal-icon {
+    display: inline-block;
+    position: absolute;
+    top: 32px;
+    margin-left: 12px;
+}
+
+.form-input:focus-within + .modal-icon {
+    fill: var(--accent-color);
+}
+
+.form-field:focus-within .form-input, {
+    border-color: var(--accent-color);
+}
+
 .form-field input {
     margin-bottom: 10px;
+    padding-left: 42px;
     
     width: 100%;
     height: 40px;
 
     border-radius: 4px;
     border: 1px solid rgba(33, 33, 33, 0.20);
-    
+}
+
+.form-input:focus-within {
+    border-radius: 4px;
+    border: 1px solid #2196F3;
+    outline: 0px;
 }
 
 .comment {
@@ -785,6 +883,12 @@ textarea {
     font-weight: 400;
     line-height: normal;
     padding: 12px 16px;
+}
+
+.comment:focus {
+    border-radius: 4px;
+    border: 1px solid #2196F3;
+    outline: 0px;
 }
 
 .form-field input[type='checkbox'] {
@@ -806,10 +910,6 @@ textarea {
     margin-bottom: 30px;
 }
 
-.accept input  {
-    margin-right: 4px;
-}
-
 .form button {
     display: block;
 
@@ -828,4 +928,47 @@ textarea {
     letter-spacing: 0.96px;
 
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+.checkbox {
+    appearance: none;
+
+    position: absolute;
+}
+
+.checkbox-label {
+    display: block;
+}
+
+.checkbox {
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    margin: -1px;
+}
+
+.checkbox-icon {
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    display: inline-block;
+    width: 16px;
+    height: 15px;
+    border: 2px solid black;
+    border-radius: 2px;
+}
+
+.checkbox:checked + .checkbox-icon {
+    background-color: var(--accent-color);
+    background-image: url(../images/icon\ check.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: transparent;
 }
